@@ -8,7 +8,7 @@ namespace LinqExercise
     class Program
     {
         //Static array of integers
-        private static int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+        private static int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };            //numbers is a field. Field's are essentially a variable declared inside of a scope of the class. 
 
         static void Main(string[] args)
         {
@@ -40,8 +40,8 @@ namespace LinqExercise
 
             Console.WriteLine();
             Console.WriteLine("Ascending");
-            var ascending = numbers.OrderBy(num => num);
-
+            var ascending = numbers.OrderBy(num => num);        // => holds similarities to a foreach statement
+                                                                // compares first number in array list. Then it will compare the next number. OrderBy is a method with a ascending order. Which is why you go to the next number.  
             foreach (var num in ascending)
             {
                 Console.WriteLine(num);
@@ -69,7 +69,7 @@ namespace LinqExercise
             Console.WriteLine();    
             Console.WriteLine("Numbers greater than 6");
 
-            var LargerThanSIx = numbers.Where(num => num > 6);
+            var LargerThanSIx = numbers.Where(num => num > 6);              //numbers is the fields .Where is the filter method that performs the function passed in as along as num is greater than 6.
             foreach (var item in LargerThanSIx)
             {
                 Console.WriteLine(item);
@@ -102,8 +102,8 @@ namespace LinqExercise
             //TODO: Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S and order this in ascending order by FirstName.
 
             Console.WriteLine();
-            var n2 = employees.Where(human => human.FullName[0] == 'C' || human.FullName[0] == 'S').OrderBy(human => human.FullName);
-
+            var n2 = employees.Where(human => human.FullName[0] == 'C' || human.FullName[0] == 'S').OrderBy(human => human.FullName);  //Employees class is a list of names, etc. .Where will filter through the list of objects and sort as long as name starts with C or S.
+                                                                                                                                       //human is a Employee object and that object holds a full name property. 
             Console.WriteLine("First names that start with C or S");
 
             foreach (var employee in n2) 
@@ -113,7 +113,7 @@ namespace LinqExercise
 
             //TODO: Print all the employees' FullName and Age who are over the age 26 to the console and order this by Age first and then by FirstName in the same result.
 
-            var n3 = employees.Where(human => human.Age > 26).OrderBy(human => human.FullName).ThenBy(human => human.Age);
+            var n3 = employees.Where(human => human.Age > 26).OrderBy(human => human.FullName).ThenBy(human => human.Age);  //employees is the list of employee objects. Then filter by age greater than 26.Then order by full name. Then by the age. 
 
             Console.WriteLine();
             Console.WriteLine("Order by Fullname and Age older than 26");
@@ -127,7 +127,7 @@ namespace LinqExercise
             //TODO: Print the Sum and then the Average of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35.
             Console.WriteLine();
             Console.WriteLine("Sum of YOE");
-            var employeeSum = employees.Where(x => x.YearsOfExperience <= 10 && x.Age > 35).Sum(x => x.YearsOfExperience);
+            var employeeSum = employees.Where(x => x.YearsOfExperience <= 10 && x.Age > 35).Sum(x => x.YearsOfExperience);  //.Where is acting like a foreach loop 
             Console.WriteLine(employeeSum);
             Console.WriteLine();
             Console.WriteLine("Average of YOE");
@@ -140,7 +140,7 @@ namespace LinqExercise
             newEmployee.LastName = "Mushrooms";
             newEmployee.YearsOfExperience = 10;
 
-            employees.Add(newEmployee);
+            employees.Append(newEmployee);
 
             Console.WriteLine();
 
